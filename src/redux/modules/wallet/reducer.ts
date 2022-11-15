@@ -9,7 +9,7 @@ export interface WalletProps {
   currenciesData: any;
   chainData: any;
   walletData: any;
-};
+}
 
 type ActionProps = {
   type: string;
@@ -57,7 +57,7 @@ export default function wallet(state = InitialState, action: ActionProps) {
         ...state,
         isLoading: false,
         error: error,
-        chainData: []
+        chainData: [],
       };
     }
     case WALLET_DATA.REQUEST: {
@@ -72,7 +72,7 @@ export default function wallet(state = InitialState, action: ActionProps) {
         ...state,
         isLoading: false,
         error: null,
-        walletData: payload
+        walletData: payload,
       };
     }
     case WALLET_DATA.UPDATE: {
@@ -80,7 +80,7 @@ export default function wallet(state = InitialState, action: ActionProps) {
         ...state,
         isLoading: false,
         error: null,
-        walletData: payload
+        walletData: payload,
       };
     }
     case WALLET_DATA.FAILURE: {
@@ -88,12 +88,12 @@ export default function wallet(state = InitialState, action: ActionProps) {
         ...state,
         isLoading: false,
         error: error,
-        walletData: []
+        walletData: [],
       };
     }
     case WALLET_DATA.RESET: {
       return {
-        ...InitialState
+        ...InitialState,
       };
     }
     default:

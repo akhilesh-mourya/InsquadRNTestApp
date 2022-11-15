@@ -11,7 +11,7 @@ const theme: DefaultTheme = {
     danger: '#FC0000',
     placeholder: '#818181',
     modalBg: 'rgba(0, 0, 0, 0.2)',
-    cancel: '#838078'
+    cancel: '#838078',
   },
   width: 50,
   height: 50,

@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 
 const appReducer = combineReducers({
   wallet,
-  auth
+  auth,
 });
 
 const rootReducer = (state: any, action: any) => {

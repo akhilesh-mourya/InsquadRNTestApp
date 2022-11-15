@@ -8,22 +8,24 @@ import { FontFamily, Type } from '../enums';
 
 interface InputProps extends TextInputProps {
   item?: any;
-  onPress: (item: any) => void
+  onPress: (item: any) => void;
 }
 
 export const WalletItem: FC<InputProps> = React.memo((props) => {
-const {item: {name, walletId, selected}, onPress, item} = props;
+  const {
+    item: { name, walletId, selected },
+    onPress,
+    item,
+  } = props;
 
   return (
     <ModalItemContainer onPress={() => onPress(item)}>
-              <LogoImage source={HEADERLOGO} />
-              <TextL type={Type.Primary} title={name} family={FontFamily.Medium} />
-                <TextL type={Type.Placeholder} title={` (${walletId})`} family={FontFamily.Medium} />
-              <BlockAlignRight>
-                <Circle >
-                  {selected && <InnterCircle />}
-                </Circle>
-              </BlockAlignRight>
+      <LogoImage source={HEADERLOGO} />
+      <TextL type={Type.Primary} title={name} family={FontFamily.Medium} />
+      <TextL type={Type.Placeholder} title={` (${walletId})`} family={FontFamily.Medium} />
+      <BlockAlignRight>
+        <Circle>{selected && <InnterCircle />}</Circle>
+      </BlockAlignRight>
     </ModalItemContainer>
   );
 });

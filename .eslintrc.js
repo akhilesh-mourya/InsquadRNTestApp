@@ -3,7 +3,6 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    es2021: true
   },
   root: true,
   extends: [

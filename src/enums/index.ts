@@ -10,7 +10,7 @@ export enum Type {
   Link = 'link',
   Info = 'info',
   Text = 'text',
-  Placeholder = 'placeholder'
+  Placeholder = 'placeholder',
 }
 
 export enum FontFamily {

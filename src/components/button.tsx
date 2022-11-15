@@ -1,4 +1,10 @@
-import { ButtonContainer, ButtonInnerContainerOne, ButtonInnerContainerTwo, ButtonInnerContainerThree, BText } from './styles';
+import {
+  ButtonContainer,
+  ButtonInnerContainerOne,
+  ButtonInnerContainerTwo,
+  ButtonInnerContainerThree,
+  BText,
+} from './styles';
 import React, { FC } from 'react';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { Size } from '../enums';
@@ -18,7 +24,6 @@ export const INButton: FC<ButtonProps> = React.memo((props) => {
   let height = verticalScale(26);
   let fontSize = scale(12);
 
-
   const getSize = () => {
     switch (size) {
       case Size.Small:
@@ -27,7 +32,7 @@ export const INButton: FC<ButtonProps> = React.memo((props) => {
         fontSize = scale(14);
         break;
       case Size.Medium:
-        width = moderateScale(windowWidth/2 - 36);
+        width = moderateScale(windowWidth / 2 - 36);
         height = moderateScale(48);
         fontSize = 15;
 
@@ -44,12 +49,11 @@ export const INButton: FC<ButtonProps> = React.memo((props) => {
     return { width, height, fontSize };
   };
 
-
   return (
     <ButtonContainer {...props} {...getSize()} type={type} size={size}>
-      <ButtonInnerContainerOne type={type}/>
-      <ButtonInnerContainerTwo  type={type}/>
-      <ButtonInnerContainerThree  type={type}/>
+      <ButtonInnerContainerOne type={type} />
+      <ButtonInnerContainerTwo type={type} />
+      <ButtonInnerContainerThree type={type} />
       <BText {...props} {...getSize()} type={type}>
         {children || title}
       </BText>

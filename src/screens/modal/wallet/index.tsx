@@ -2,8 +2,22 @@ import React, { FC } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import FontistoIcon from 'react-native-vector-icons/Fontisto';
 
-import { CenterBlock, Container, ModalContainer, FlatList, SubContainer, Touchable, BottomButtonContainer, BottomContainer, Image, VerticalSeparator, HorizontalSeparator, ButtonTouchable } from './styles';
-import { BlurView } from "@react-native-community/blur";
+import {
+  CenterBlock,
+  Container,
+  ModalContainer,
+  FlatList,
+  SubContainer,
+  Touchable,
+  BottomButtonContainer,
+  BottomContainer,
+  Image,
+  VerticalSeparator,
+  HorizontalSeparator,
+  ButtonTouchable,
+  BlurStyle,
+} from './styles';
+import { BlurView } from '@react-native-community/blur';
 import { WalletItem } from '../../../components/walletItem';
 import { TextL } from '../../../components/text';
 import { FontFamily } from '../../../enums';
@@ -19,21 +33,20 @@ import { WALLET_DATA } from '../../../constants/actions';
 export const WalletScreen: FC<{}> = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const {colors} = theme;
+  const { colors } = theme;
   const navigation: NavigationProp<any, any> = useNavigation();
   const wallet: WalletProps = useSelector((state) => state.wallet);
   const onCrossPress = () => {
-      navigation.goBack();
-  }
+    navigation.goBack();
+  };
 
   const onItemPress = (item: any) => {
-
     // update redux
-    const walletData = [...wallet.walletData]
+    const walletData = [...wallet.walletData];
     walletData.map((wItem) => {
-      wItem.selected = false
-      if(wItem.id === item.id ) {
-        wItem.selected = true
+      wItem.selected = false;
+      if (wItem.id === item.id) {
+        wItem.selected = true;
       }
     });
 
@@ -43,28 +56,24 @@ export const WalletScreen: FC<{}> = () => {
     });
 
     navigation.goBack();
-}
+  };
 
-  const renderItem = ({item}) => {
-    return <WalletItem item={item} onPress={onItemPress}/>
-  }
+  const renderItem = ({ item }) => {
+    return <WalletItem item={item} onPress={onItemPress} />;
+  };
 
   return (
     <Container>
       <BlurView
-        style={{position: "absolute",
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0}}
+        style={BlurStyle}
         blurType="light"
         blurAmount={4}
         reducedTransparencyFallbackColor="black"
       />
       <SubContainer>
-        <ModalContainer >
-          <TextL title={'Choose a Wallet'} family={FontFamily.Medium}/>
-          <CenterBlock/>
+        <ModalContainer>
+          <TextL title={'Choose a Wallet'} family={FontFamily.Medium} />
+          <CenterBlock />
           <Touchable>
             <Icon name="edit-3" size={20} color={colors.cancel} />
           </Touchable>
@@ -73,29 +82,29 @@ export const WalletScreen: FC<{}> = () => {
           </Touchable>
         </ModalContainer>
         <HorizontalSeparator />
-       <FlatList
-              data={wallet.walletData}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-            />
-            <HorizontalSeparator />
-            <BottomContainer>
-              <ButtonTouchable>
+        <FlatList
+          data={wallet.walletData}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+        <HorizontalSeparator />
+        <BottomContainer>
+          <ButtonTouchable>
             <BottomButtonContainer>
               <Image source={WALLET_ACTIVE} />
-              <TextL title={'Add Wallet'} family={FontFamily.Medium}/>
+              <TextL title={'Add Wallet'} family={FontFamily.Medium} />
             </BottomButtonContainer>
-            </ButtonTouchable>
-            <VerticalSeparator />
-            <ButtonTouchable>
+          </ButtonTouchable>
+          <VerticalSeparator />
+          <ButtonTouchable>
             <BottomButtonContainer>
-            <FontistoIcon name="locked" size={14} color={colors.primary} />
-            <MarginL ml={9}/>
-              <TextL title={'Lock Martian'} family={FontFamily.Medium}/>
+              <FontistoIcon name="locked" size={14} color={colors.primary} />
+              <MarginL ml={9} />
+              <TextL title={'Lock Martian'} family={FontFamily.Medium} />
             </BottomButtonContainer>
-            </ButtonTouchable>
-            </BottomContainer>
-            </SubContainer>
+          </ButtonTouchable>
+        </BottomContainer>
+      </SubContainer>
     </Container>
   );
 };

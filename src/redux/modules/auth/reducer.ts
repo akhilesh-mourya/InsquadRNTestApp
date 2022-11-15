@@ -6,7 +6,7 @@ export interface AuthProps {
   isLoading: boolean;
   error: any;
   data: any;
-};
+}
 
 type ActionProps = {
   type: string;
@@ -52,7 +52,7 @@ export default function auth(state = InitialState, action: ActionProps) {
         ...state,
         isLoading: false,
         error: error,
-        data: []
+        data: [],
       };
     }
     default:

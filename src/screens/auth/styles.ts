@@ -5,11 +5,11 @@ import { scale, verticalScale } from 'react-native-size-matters';
 export const Container = styled.View.attrs({
   flex: 1,
 })`
-${color}
-${space}`;
+  ${color}
+  ${space}
+`;
 
-
-export const BottomContainer = styled.View.attrs((props) => ({
+export const BottomContainer = styled.View.attrs(() => ({
   position: 'absolute',
   flex: 1,
   left: 0,
@@ -23,8 +23,7 @@ export const BottomContainer = styled.View.attrs((props) => ({
   ${border}
 `;
 
-export const ForgotContainer = styled.TouchableOpacity.attrs((props) => ({
-}))`
+export const ForgotContainer = styled.TouchableOpacity.attrs(() => ({}))`
   align-items: center;
   justify-content: center;
   align-self: center;
@@ -36,31 +35,33 @@ export const ForgotContainer = styled.TouchableOpacity.attrs((props) => ({
 export const ForgotText = styled.Text.attrs((props) => ({
   color: props.theme.colors.placeholder,
 }))`
-font-size: 15px;
-font-family: 'System85Pro-Regular';
-${color}
-${space}
-${layout}`;
-
+  font-size: 15px;
+  font-family: 'System85Pro-Regular';
+  ${color}
+  ${space}
+${layout}
+`;
 
 export const LogoImage = styled.Image.attrs({
   width: scale(100),
   height: scale(100),
   alignSelf: 'center',
-  mt: verticalScale(108)
+  mt: verticalScale(108),
 })`
-${color}
-${space}
-${layout}`;
+  ${color}
+  ${space}
+${layout}
+`;
 
 export const LogoText = styled.Text.attrs({
   textAlign: 'center',
   mt: verticalScale(18),
 })`
-font-size: 40px;
-align-self: center;
-font-family: 'Migra-Extrabold';
+  font-size: 40px;
+  align-self: center;
+  font-family: 'Migra-Extrabold';
 
-${color}
-${space}
-${layout}`;
+  ${color}
+  ${space}
+${layout}
+`;

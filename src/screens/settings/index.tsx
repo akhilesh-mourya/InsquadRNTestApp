@@ -4,7 +4,7 @@ import { Container } from './styles';
 export const Settingscreen: FC<{}> = () => {
   return (
     <Container>
-      <InHeader title={'Aptos'}/>
+      <InHeader title={'Aptos'} />
     </Container>
   );
 };

@@ -9,14 +9,14 @@ export const authDataRequest = () => {
 export const authDataSuccess = (payload: any) => {
   return {
     type: AUTH_DATA.SUCCESS,
-    payload
+    payload,
   };
 };
 
 export const authDataUpdate = (payload: any) => {
   return {
     type: AUTH_DATA.UPDATE,
-    payload
+    payload,
   };
 };
 
@@ -26,4 +26,3 @@ export const authDataFailure = (error: any) => {
     error,
   };
 };
-

@@ -7,7 +7,7 @@ interface InputProps extends TextInputProps {
 }
 
 export const InInput: FC<InputProps> = React.memo((props) => {
-  const {error} = props;
+  const { error } = props;
   return (
     <InputContainer>
       <TextInput {...props} placeholder={'ENTER YOUR PASSWORD'} />

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { color, border, layout, space, } from 'styled-system';
+import { color, border, layout, space } from 'styled-system';
 import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
 import { Dimensions } from 'react-native';
 import { Size, Type } from '../enums';
@@ -15,77 +15,79 @@ export const Container = styled.View.attrs((props) => ({
   ${color}
 `;
 
-
-export const HeaderContainer = styled.View.attrs((props) => ({
+export const HeaderContainer = styled.View.attrs(() => ({
   height: scale(94),
-  pt: moderateScale(34)
+  pt: moderateScale(34),
 }))`
   flex-direction: row;
   align-items: center;
   ${color}
   ${space}
-  ${layout}`;
+  ${layout}
+`;
 
-  export const Touchable = styled.TouchableOpacity.attrs((props) => ({
-    bg: props.theme.colors.bg,
-    ml: verticalScale(10)
-  }))`
+export const Touchable = styled.TouchableOpacity.attrs((props) => ({
+  bg: props.theme.colors.bg,
+  ml: verticalScale(10),
+}))`
   padding: 5px;
   border-radius: ${moderateScale(100)}px;
-    flex-direction: row;
-    align-items: center;
-    ${color}
-    ${space}
-    ${layout}`;
+  flex-direction: row;
+  align-items: center;
+  ${color}
+  ${space}
+    ${layout}
+`;
 
-
-    export const HeaderText = styled.Text.attrs((props) => ({
-      color: props.theme.colors.primary,
-      fontSize: moderateScale(14),
-      mr: moderateScale(2)
-    }))`
-      font-weight: 500;
-      font-family: 'System85Pro-Regular';
-      ${color}
-      ${space}
-    `;
+export const HeaderText = styled.Text.attrs((props) => ({
+  color: props.theme.colors.primary,
+  fontSize: moderateScale(14),
+  mr: moderateScale(2),
+}))`
+  font-weight: 500;
+  font-family: 'System85Pro-Regular';
+  ${color}
+  ${space}
+`;
 
 export const LogoImage = styled.Image.attrs({
   width: scale(27),
   height: scale(27),
-  mr: moderateScale(10)
+  mr: moderateScale(10),
 })`
-${color}
-${space}
-${layout}`;
-
+  ${color}
+  ${space}
+${layout}
+`;
 
 export const Block = styled.View.attrs({
   flex: 1,
 })`
-${color}
-${space}
-${layout}`;
+  ${color}
+  ${space}
+${layout}
+`;
 
 export const BlockAlignRight = styled.View.attrs({
   flex: 1,
 })`
-align-items: flex-end;
-${color}
-${space}
-${layout}`;
+  align-items: flex-end;
+  ${color}
+  ${space}
+${layout}
+`;
 
 export const BellImage = styled.Image.attrs({
   width: scale(34),
   height: scale(34),
-  mr: moderateScale(10)
+  mr: moderateScale(10),
 })`
-${color}
-${space}
-${layout}`;
+  ${color}
+  ${space}
+${layout}
+`;
 
-export const BellTouchable = styled.TouchableOpacity.attrs(() => ({
-}))``;
+export const BellTouchable = styled.TouchableOpacity.attrs(() => ({}))``;
 
 export const ButtonContainer = styled.TouchableOpacity.attrs((props) => ({
   width: props.width,
@@ -102,7 +104,7 @@ export const ButtonContainer = styled.TouchableOpacity.attrs((props) => ({
   ${border}
 `;
 
-export const ButtonInnerContainerOne = styled.View.attrs((props) => ({
+export const ButtonInnerContainerOne = styled.View.attrs(() => ({
   flex: 1,
   left: 7,
   right: 7,
@@ -111,18 +113,18 @@ export const ButtonInnerContainerOne = styled.View.attrs((props) => ({
   position: 'absolute',
   borderRadius: scale(2),
 }))`
-border-width: 2px;
-border-color: ${(props) => `${props.type === Type.Primary ? props.theme.colors.secondary : props.theme.colors.primary}`};
+  border-width: 2px;
+  border-color: ${(props) =>
+    `${props.type === Type.Primary ? props.theme.colors.secondary : props.theme.colors.primary}`};
   ${layout}
   ${color}
   ${border}
 `;
 
-
 export const ButtonInnerContainerTwo = styled.View.attrs((props) => ({
   flex: 1,
   bg: props.type === Type.Primary ? props.theme.colors.primary : props.theme.colors.secondary,
-  left:0,
+  left: 0,
   right: 0,
   bottom: 13,
   top: 13,
@@ -133,11 +135,10 @@ export const ButtonInnerContainerTwo = styled.View.attrs((props) => ({
 ${border}
 `;
 
-
 export const ButtonInnerContainerThree = styled.View.attrs((props) => ({
   flex: 1,
   bg: props.type === Type.Primary ? props.theme.colors.primary : props.theme.colors.secondary,
-  left:13,
+  left: 13,
   right: 13,
   bottom: 0,
   top: 0,
@@ -148,7 +149,6 @@ export const ButtonInnerContainerThree = styled.View.attrs((props) => ({
   ${space}
 ${border}
 `;
-
 
 export const BText = styled.Text.attrs((props) => ({
   color: props.type === Type.Primary ? props.theme.colors.secondary : props.theme.colors.primary,
@@ -166,11 +166,11 @@ export const Text = styled.Text.attrs((props) => ({
   ${color}
 `;
 
-export const InputContainer = styled.View.attrs((props) => ({
+export const InputContainer = styled.View.attrs(() => ({
   width: moderateScale(windowWidth - 70),
   marginTop: moderateScale(76),
 }))`
-align-self:center;
+  align-self: center;
   ${color}
 `;
 
@@ -197,11 +197,10 @@ export const TextInput = styled.TextInput.attrs((props) => ({
   shadowRadius: 4,
   shadowOffset: {
     height: 1,
-    width: 1
+    width: 1,
   },
   fontSize: 15,
   mb: scale(8),
-
 }))`
   font-family: 'System85Pro-Regular';
   ${color}
@@ -209,7 +208,6 @@ export const TextInput = styled.TextInput.attrs((props) => ({
   ${layout}
   ${border}
 `;
-
 
 export const ItemContainer = styled.View.attrs((props) => ({
   height: moderateScale(58),
@@ -224,91 +222,87 @@ export const ItemContainer = styled.View.attrs((props) => ({
   shadowRadius: 10,
   shadowOffset: {
     height: 1,
-    width: 1
+    width: 1,
   },
 }))`
-justify-content: center;
+  justify-content: center;
 
-${color}
-${space}
+  ${color}
+  ${space}
 ${layout}
 ${border}
 `;
 
-export const RowContainer = styled.View.attrs((props) => ({
-}))`
-  margin-top:  ${(props) => props.marginTop ? moderateScale(props.marginTop): 0}px;
+export const RowContainer = styled.View.attrs(() => ({}))`
+  margin-top: ${(props) => (props.marginTop ? moderateScale(props.marginTop) : 0)}px;
   flex-direction: row;
   align-items: center;
   ${color}
   ${space}
-  ${layout}`;
+  ${layout}
+`;
 
-  export const Image = styled.Image.attrs({
-    width: scale(33),
-    height: scale(33),
-  })`
+export const Image = styled.Image.attrs({
+  width: scale(33),
+  height: scale(33),
+})`
   ${color}
   ${space}
-  ${layout}`;
+  ${layout}
+`;
 
-  export const MarginT = styled.View.attrs(() => ({
-  }))`
-  margin-top:${(props) => props.mt ? moderateScale(props.mt) : 0}px;
-  `;
+export const MarginT = styled.View.attrs(() => ({}))`
+  margin-top: ${(props) => (props.mt ? moderateScale(props.mt) : 0)}px;
+`;
 
-  export const MarginL = styled.View.attrs(() => ({
-  }))`
-  margin-left:${(props) => props.ml ? moderateScale(props.ml) : 0}px;
-  `;
+export const MarginL = styled.View.attrs(() => ({}))`
+  margin-left: ${(props) => (props.ml ? moderateScale(props.ml) : 0)}px;
+`;
 
-  export const MarginR = styled.View.attrs(() => ({
-  }))`
-  margin-right:${(props) => props.mr ? moderateScale(props.mr) : 0}px;
-  
-    ${color}
-    ${space}
+export const MarginR = styled.View.attrs(() => ({}))`
+  margin-right: ${(props) => (props.mr ? moderateScale(props.mr) : 0)}px;
+
+  ${color}
+  ${space}
     ${layout}
-  `;
+`;
 
-
-  export const Circle = styled.View.attrs((props) => ({
-    width: moderateScale(20.5),
-    height: moderateScale(20.5),
-    borderRadius: moderateScale(10.25),
-    borderColor: props.theme.colors.primary,
-    borderWidth: moderateScale(1)
-
-  }))`
+export const Circle = styled.View.attrs((props) => ({
+  width: moderateScale(20.5),
+  height: moderateScale(20.5),
+  borderRadius: moderateScale(10.25),
+  borderColor: props.theme.colors.primary,
+  borderWidth: moderateScale(1),
+}))`
   align-items: center;
   justify-content: center;
   ${color}
   ${space}
-  ${layout}`;
+  ${layout}
+`;
 
-  export const InnterCircle = styled.View.attrs((props) => ({
-    width: moderateScale(14),
-    height: moderateScale(14),
-    borderRadius: moderateScale(7),
-    bg: props.theme.colors.primary
-
-  }))`
+export const InnterCircle = styled.View.attrs((props) => ({
+  width: moderateScale(14),
+  height: moderateScale(14),
+  borderRadius: moderateScale(7),
+  bg: props.theme.colors.primary,
+}))`
   align-items: center;
   justify-content: center;
   ${color}
   ${space}
-  ${layout}`;
+  ${layout}
+`;
 
-  export const ModalItemContainer = styled.TouchableOpacity.attrs((props) => ({
-    height: moderateScale(47),
-    padding: moderateScale(17),
-    bg: props.theme.colors.white,
-  }))`
+export const ModalItemContainer = styled.TouchableOpacity.attrs((props) => ({
+  height: moderateScale(47),
+  padding: moderateScale(17),
+  bg: props.theme.colors.white,
+}))`
   flex-direction: row;
   align-items: center;
   ${color}
   ${space}
   ${layout}
   ${border}
-  `;
-
+`;

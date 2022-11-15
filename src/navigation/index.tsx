@@ -10,32 +10,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getInitialRoute } from '../utility/utility';
 const Stack = createNativeStackNavigator();
 
-
 const StackNavigator: FC<{}> = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const auth: AuthProps = useSelector((state) => state.auth);
-  const initialScreen = getInitialRoute(auth.data?.loginTime, dispatch)
- 
-    return (
-      <NavigationContainer>
-       <Stack.Navigator
+  const initialScreen = getInitialRoute(auth.data?.loginTime, dispatch);
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
         initialRouteName={`${initialScreen}`}
         screenOptions={{
           headerShown: false,
         }}>
-
         <Stack.Screen name="AuthScreen" component={AuthScreen} />
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Group screenOptions={{ presentation: 'transparentModal' }}>
           <Stack.Screen name="ChainScreen" component={ChainScreen} />
           <Stack.Screen name="WalletScreen" component={WalletScreen} />
-
         </Stack.Group>
-
-        
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  };
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default StackNavigator;

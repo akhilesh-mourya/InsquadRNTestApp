@@ -4,7 +4,7 @@ import { Container } from './styles';
 export const ActivitiesScreen: FC<{}> = () => {
   return (
     <Container>
-      <InHeader title={'Aptos'}/>
+      <InHeader title={'Aptos'} />
     </Container>
   );
 };

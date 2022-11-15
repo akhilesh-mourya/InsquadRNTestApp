@@ -8,26 +8,24 @@
  * @format
  */
 
-import React, {type PropsWithChildren} from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components';
 import ReduxStore from './src/redux/store/store';
 import theme from './src/theme';
-import StackNavigator from "./src/navigation";
+import StackNavigator from './src/navigation';
 
 const App = () => {
   return (
     <Provider store={ReduxStore.store}>
-        <PersistGate loading={null} persistor={ReduxStore.persistor}>
-          <ThemeProvider theme={theme}>
-              <StackNavigator />
-          </ThemeProvider>
-        </PersistGate>
-      </Provider>
+      <PersistGate loading={null} persistor={ReduxStore.persistor}>
+        <ThemeProvider theme={theme}>
+          <StackNavigator />
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 };
-
-
 
 export default App;

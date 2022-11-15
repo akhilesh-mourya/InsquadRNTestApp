@@ -9,14 +9,14 @@ export const chainData = () => {
 export const chainDataSuccess = (payload: any) => {
   return {
     type: CHAIN_DATA.SUCCESS,
-    payload
+    payload,
   };
 };
 
 export const chainDataUpdate = (payload: any) => {
   return {
     type: CHAIN_DATA.UPDATE,
-    payload
+    payload,
   };
 };
 

@@ -2,5 +2,4 @@
 
 */
 
-export default function* authSaga() {
-}
+export default function* authSaga() {}

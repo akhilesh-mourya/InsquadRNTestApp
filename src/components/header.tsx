@@ -1,4 +1,12 @@
-import { HeaderContainer, LogoImage, HeaderText, Touchable, Block, BellImage, BellTouchable } from './styles';
+import {
+  HeaderContainer,
+  LogoImage,
+  HeaderText,
+  Touchable,
+  Block,
+  BellImage,
+  BellTouchable,
+} from './styles';
 import React, { FC } from 'react';
 import { HEADERLOGO, BELL } from '../constants/constants';
 import Icon from 'react-native-vector-icons/Feather';
@@ -9,23 +17,23 @@ interface HeaderProps {
 }
 
 export const InHeader: FC<HeaderProps> = React.memo((props) => {
-  const {title} = props;
+  const { title } = props;
   const navigation: NavigationProp<any, any> = useNavigation();
-    const onPress = () => {
-        navigation.navigate('ChainScreen');
-    }
+  const onPress = () => {
+    navigation.navigate('ChainScreen');
+  };
 
   return (
     <HeaderContainer>
-        <Touchable onPress={onPress}>
-            <LogoImage source={HEADERLOGO} />
-            <HeaderText>
-                {title}
-            </HeaderText>
-            <Icon name="chevron-down" size={20} color="black" />
-            </Touchable>
-            <Block />
-            <BellTouchable><BellImage source={BELL} /></BellTouchable>
+      <Touchable onPress={onPress}>
+        <LogoImage source={HEADERLOGO} />
+        <HeaderText>{title}</HeaderText>
+        <Icon name="chevron-down" size={20} color="black" />
+      </Touchable>
+      <Block />
+      <BellTouchable>
+        <BellImage source={BELL} />
+      </BellTouchable>
     </HeaderContainer>
   );
 });
