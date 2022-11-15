@@ -1,3 +1,7 @@
+/***
+INSQUAD - CHAIN MODAL
+***/
+
 import React, { FC } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {
@@ -25,13 +29,19 @@ export const ModalScreen: FC<{}> = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { colors } = theme;
-  const navigation: NavigationProp<any, any> = useNavigation();
-  const wallet: WalletProps = useSelector((state) => state.wallet);
+  const navigation: NavigationProp<any, any> = useNavigation(); // Accessing navigation object
+  const wallet: WalletProps = useSelector((state) => state.wallet); // Accessing wallet data from the redux state to access chain data from it
 
+  /*
+   * Modal close method
+   */
   const onCrossPress = () => {
     navigation.goBack();
   };
 
+  /*
+   * Modal item press method
+   */
   const onItemPress = (item: any) => {
     // update redux
     const chainData = [...wallet.chainData];
@@ -42,6 +52,7 @@ export const ModalScreen: FC<{}> = () => {
       }
     });
 
+    // Updating the redux state for the selected chain item and dismissing the Chain modal
     dispatch({
       type: CHAIN_DATA.UPDATE,
       payload: chainData,

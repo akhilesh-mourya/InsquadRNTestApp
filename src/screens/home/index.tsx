@@ -1,3 +1,7 @@
+/***
+INSQUAD - FIRST TAB SCREEN
+***/
+
 import React, { FC } from 'react';
 import { InHeader } from '../../components/header';
 import { BLACKLOGO } from '../../constants/constants';
@@ -19,7 +23,7 @@ import { moderateScale } from 'react-native-size-matters';
 import { INButton } from '../../components/button';
 import { HomeItem } from '../../components/homeItem';
 import { TextLX, TextS, TextXXXL } from '../../components/text';
-import { Type } from '../../enums';
+import { Size, Type } from '../../enums';
 import { NavigationProp } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
@@ -29,12 +33,16 @@ import { getTitle } from '../../utility/utility';
 export const HomeScreen: FC<{}> = () => {
   const theme = useTheme();
   const { colors } = theme;
-  const navigation: NavigationProp<any, any> = useNavigation();
-  const wallet: WalletProps = useSelector((state) => state.wallet);
+  const navigation: NavigationProp<any, any> = useNavigation(); // Accessing navigation object
+  const wallet: WalletProps = useSelector((state) => state.wallet); // Accessing wallet data from the redux state
 
+  /*
+   * Method to open Wallet Modal
+   */
   const onPress = () => {
-    navigation.navigate('WalletScreen');
+    navigation.navigate('WalletScreen'); // Opening the Wallet modal
   };
+
   const renderItem = ({ item }) => {
     return <HomeItem item={item} />;
   };
@@ -68,8 +76,8 @@ export const HomeScreen: FC<{}> = () => {
           <TextLX type={Type.Placeholder}>.23</TextLX>
         </TextLX>
         <ButtonContainer>
-          <INButton size={'md'} title={'BUY'} type={'primary'} />
-          <INButton size={'md'} title={'SEND'} type={'secondary'} />
+          <INButton size={Size.Medium} title={'BUY'} type={Type.Primary} />
+          <INButton size={Size.Medium} title={'SEND'} type={Type.Secondary} />
         </ButtonContainer>
         <FlatList
           data={wallet.currenciesData}

@@ -1,13 +1,15 @@
+/***
+INSQUAD - BOTTOM TABS SCREEN
+***/
+
 import React, { FC } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-const Tab = createBottomTabNavigator();
 import HomeScreen from '../screens/home';
 import DashboardScreen from '../screens/dashboard';
 import ActivitiesScreen from '../screens/activities';
 import BrowseScreen from '../screens/browse';
 import Settingscreen from '../screens/settings';
 import { useTheme } from 'styled-components';
-
 import { Image } from 'react-native';
 import {
   WALLET,
@@ -22,6 +24,8 @@ import {
   SETTINGS_ACTIVE,
 } from '../constants/constants';
 import { verticalScale } from 'react-native-size-matters';
+
+const Tab = createBottomTabNavigator();
 
 const renderIcon = (icon: any, needAdjustment = false) => {
   return (

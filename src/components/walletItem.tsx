@@ -2,7 +2,7 @@ import { LogoImage, BlockAlignRight, Circle, ModalItemContainer, InnterCircle } 
 
 import React, { FC } from 'react';
 import { TextInputProps } from 'react-native';
-import { HEADERLOGO } from '../constants/constants';
+import { WALLET_ELLIPSE } from '../constants/constants';
 import { TextL } from './text';
 import { FontFamily, Type } from '../enums';
 
@@ -20,7 +20,7 @@ export const WalletItem: FC<InputProps> = React.memo((props) => {
 
   return (
     <ModalItemContainer onPress={() => onPress(item)}>
-      <LogoImage source={HEADERLOGO} />
+      <LogoImage source={WALLET_ELLIPSE} />
       <TextL type={Type.Primary} title={name} family={FontFamily.Medium} />
       <TextL type={Type.Placeholder} title={` (${walletId})`} family={FontFamily.Medium} />
       <BlockAlignRight>

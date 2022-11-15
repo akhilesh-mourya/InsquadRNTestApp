@@ -9,22 +9,38 @@ import {
 } from './styles';
 
 import React, { FC } from 'react';
-import { TextInputProps } from 'react-native';
-import { HEADERLOGO } from '../constants/constants';
+import { HEADERLOGO, USDC_COIN, USDT_COIN } from '../constants/constants';
 import { TextL } from './text';
 import { FontFamily, Type } from '../enums';
-
-interface InputProps extends TextInputProps {
+interface HomeItemProps {
   item?: any;
 }
 
-export const HomeItem: FC<InputProps> = React.memo((props) => {
-  const { name, category, serial, price } = props.item;
+export const HomeItem: FC<HomeItemProps> = React.memo((props) => {
+  const { id, name, category, serial, price } = props.item;
+
+  const getImage = (itemId: number) => {
+    let img = HEADERLOGO;
+    switch (itemId) {
+      case 1:
+        img = HEADERLOGO;
+        break;
+      case 2:
+        img = USDC_COIN;
+        break;
+      case 3:
+        img = USDT_COIN;
+        break;
+      default:
+        break;
+    }
+    return img;
+  };
 
   return (
     <ItemContainer>
       <RowContainer>
-        <Image source={HEADERLOGO} />
+        <Image source={getImage(id)} />
         <MarginL ml={12} />
         <Block>
           <TextL type={Type.Primary} title={name} family={FontFamily.Medium} />

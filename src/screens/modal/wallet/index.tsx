@@ -1,7 +1,10 @@
+/***
+INSQUAD - WALLET MODAL
+***/
+
 import React, { FC } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import FontistoIcon from 'react-native-vector-icons/Fontisto';
-
 import {
   CenterBlock,
   Container,
@@ -34,14 +37,20 @@ export const WalletScreen: FC<{}> = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { colors } = theme;
-  const navigation: NavigationProp<any, any> = useNavigation();
-  const wallet: WalletProps = useSelector((state) => state.wallet);
+  const navigation: NavigationProp<any, any> = useNavigation(); // Accessing navigation object
+  const wallet: WalletProps = useSelector((state) => state.wallet); // Accessing wallet data from the redux state
+
+  /*
+   * Modal close method
+   */
   const onCrossPress = () => {
     navigation.goBack();
   };
 
+  /*
+   * Modal item press method
+   */
   const onItemPress = (item: any) => {
-    // update redux
     const walletData = [...wallet.walletData];
     walletData.map((wItem) => {
       wItem.selected = false;
@@ -50,11 +59,11 @@ export const WalletScreen: FC<{}> = () => {
       }
     });
 
+    // Updating the redux state for the selected wallet item and dismissing the Wallet modal
     dispatch({
       type: WALLET_DATA.UPDATE,
       payload: walletData,
     });
-
     navigation.goBack();
   };
 

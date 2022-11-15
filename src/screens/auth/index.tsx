@@ -3,6 +3,7 @@ import { INButton } from '../../components/button';
 import { InInput } from '../../components/input';
 import { LOGO } from '../../constants/constants';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useDispatch } from 'react-redux';
 import {
   Container,
@@ -17,14 +18,18 @@ import { validatePassword } from '../../utility/utility';
 import { AUTH_DATA } from '../../constants/actions';
 
 export const AuthScreen: FC<{}> = () => {
-  const navigation: NavigationProp<any, any> = useNavigation();
+  const navigation: NavigationProp<any, any> = useNavigation(); // Accessing navigation object
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const dispatch = useDispatch();
 
+  /*
+   * Authentication method
+   */
   const unlockPress = () => {
-    const validation = validatePassword(password);
+    const validation = validatePassword(password); // Validating password
     if (validation.length === 0) {
+      // Navigating and resetting to the bottom tabs screen and storing current login time to the redux state
       reset(navigation, 'BottomTabs');
       dispatch({
         type: AUTH_DATA.UPDATE,
@@ -33,6 +38,9 @@ export const AuthScreen: FC<{}> = () => {
     } else setPasswordError(validation);
   };
 
+  /*
+   * Storing the password in the local state while user enter the password
+   */
   const onChangeText = (text) => {
     if (passwordError) setPasswordError('');
     setPassword(text);
@@ -40,10 +48,12 @@ export const AuthScreen: FC<{}> = () => {
 
   return (
     <Container>
-      <LogoImage source={LOGO} />
-      <LogoText>MARTIAN</LogoText>
-      <InInput onChangeText={onChangeText} secureTextEntry error={passwordError} />
-      <INButton size={'lg'} title={'UNLOCK'} type={'primary'} onPress={unlockPress} />
+      <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'}>
+        <LogoImage source={LOGO} />
+        <LogoText>MARTIAN</LogoText>
+        <InInput onChangeText={onChangeText} secureTextEntry error={passwordError} />
+        <INButton size={'lg'} title={'UNLOCK'} type={'primary'} onPress={unlockPress} />
+      </KeyboardAwareScrollView>
       <BottomContainer>
         <ForgotContainer>
           <ForgotText>FORGOT PASSWORD</ForgotText>

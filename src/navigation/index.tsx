@@ -1,3 +1,7 @@
+/***
+INSQUAD - NAVIGATION STACK CLASS
+***/
+
 import React, { FC } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,7 +17,7 @@ const Stack = createNativeStackNavigator();
 const StackNavigator: FC<{}> = () => {
   const dispatch = useDispatch();
   const auth: AuthProps = useSelector((state) => state.auth);
-  const initialScreen = getInitialRoute(auth.data?.loginTime, dispatch);
+  const initialScreen = getInitialRoute(auth.data?.loginTime, dispatch); // Check whether the current session active or not
 
   return (
     <NavigationContainer>
